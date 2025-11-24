@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Offer Letter Generator</title>
+
+  <!-- Link to stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- html2pdf bundle (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Offer Letter Generator</h1>
+      <p class="muted">Fill details → Generate preview → Download PDF</p>
+    </header>
+
+    <main class="grid">
+      <section class="form-section">
+        <form id="offerForm" onsubmit="return false;">
+          <div class="row">
+            <label>Candidate Name</label>
+            <input id="candidateName" type="text" placeholder="e.g., Aisha Khan" required />
+          </div>
+
+          <div class="row">
+            <label>Position / Role</label>
+            <input id="position" type="text" placeholder="e.g., Frontend Developer" required />
+          </div>
+
+          <div class="row">
+            <label>Company Name</label>
+            <input id="companyName" type="text" placeholder="e.g., Acme Technologies" required />
+          </div>
+
+          <div class="row">
+            <label>Start Date</label>
+            <input id="startDate" type="date" />
+          </div>
+
+          <div class="row">
+            <label>Salary / Compensation (optional)</label>
+            <input id="salary" type="text" placeholder="e.g., PKR 120,000 / month" />
+          </div>
+
+          <div class="row">
+            <label>HR Name (signature)</label>
+            <input id="hrName" type="text" placeholder="e.g., Sara Ahmed" />
+          </div>
+
+          <div class="row">
+            <label>Company Logo (optional)</label>
+            <input id="logoURL" type="url" placeholder="Paste image URL (https://...)" />
+          </div>
+
+          <div class="actions">
+            <button id="generateBtn" type="button">Generate Offer Letter</button>
+            <button id="downloadBtn" type="button">Download as PDF</button>
+            <button id="resetBtn" type="button">Reset</button>
+          </div>
+        </form>
+
+        <p class="hint">Tip: If you want to include a signature image, paste its URL into the Company Logo field.</p>
+      </section>
+
+      <section class="preview-section">
+        <h2>Preview</h2>
+
+        <!-- Offer letter container that will be converted to PDF -->
+        <div id="offerLetter" class="letter">
+          <!-- populated by script.js -->
+          <div class="letter-inner">
+            <div class="letter-header">
+              <img id="logoPreview" src="" alt="Company Logo" style="display:none;" />
+              <h3>OFFER LETTER</h3>
+            </div>
+
+            <div class="letter-body">
+              <p class="date-line" id="offerDate">Date: </p>
+
+              <p id="dearLine">Dear [CandidateName],</p>
+
+              <p id="mainParagraph">
+                We are pleased to offer you the position of <strong>[Position]</strong> at <strong>[CompanyName]</strong>.
+                Your expected start date is <strong>[StartDate]</strong>.
+              </p>
+
+              <p id="salaryParagraph">Compensation: <strong>[Salary]</strong></p>
+
+              <p id="benefits">
+                You will report to your manager and will be eligible for standard company benefits as applicable.
+              </p>
+
+              <p id="acceptance">
+                To confirm your acceptance, please sign and return this letter by email or contact our HR team.
+              </p>
+
+              <p class="closing">
+                Sincerely,<br />
+                <span id="hrSignature">[HRName]</span><br />
+                Human Resources<br />
+                <span id="companySignature">[CompanyName]</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Built with HTML, CSS &amp; JavaScript • Uses html2pdf.js for client-side PDF downloads</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
