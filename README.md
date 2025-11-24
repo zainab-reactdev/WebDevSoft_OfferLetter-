@@ -5,7 +5,7 @@ This project was created as **PR 1** during my internship at **WebDevSoft**.
 ---
 
 ## 🎯 Project Title  
-** Offer Letter Generator**
+Offer Letter Generator
 
 ---
 
